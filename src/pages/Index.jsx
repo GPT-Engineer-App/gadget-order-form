@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -6,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Button } from "@/components/ui/button";
 
 const Index = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     name: '',
@@ -90,8 +92,15 @@ const Index = () => {
                 </SelectContent>
               </Select>
             </div>
-            <Button type="submit" className="w-full">Submit Order</Button>
+            <Button type="submit" className="w-full mb-2">Submit Order</Button>
           </form>
+          <Button 
+            variant="outline" 
+            className="w-full"
+            onClick={() => navigate('/')}
+          >
+            Logout
+          </Button>
         </CardContent>
       </Card>
     </div>
